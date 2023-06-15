@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Phòng Khách</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="phongkhach.css" />
+    </head>
+    <body>
+        <div class="tieude">
+            <h1
+                class="menu"
+                style="text-align: center; text-transform: uppercase"
+            >
+                phòng khách
+            </h1>
+            <img
+                class="gif"
+                src="https://elica.vn/wp-content/uploads/2019/11/gif-leaf-loading-gif-MAIN.gif"
+                alt="this slowpoke moves"
+                width="30"
+                height="30"
+            />
+            <label class="switch">
+                <input type="checkbox" id="darkmode" />
+                <span class="slider round"></span>
+            </label>
+            <p class="bao_p">DARK MODE</p>
+        </div>
+        <hr />
+        <div id="time"></div>
+        <script>
+            function dongho() {
+                var time = new Date();
+                var gio = time.getHours();
+                var phut = time.getMinutes();
+                var giay = time.getSeconds();
+                if (gio < 10) gio = "0" + gio;
+                if (phut < 10) phut = "0" + phut;
+                if (giay < 10) giay = "0" + giay;
+                document.getElementById("time").innerHTML =
+                    gio + ":" + phut + ":" + giay;
+                setTimeout("dongho()", 1000);
+            }
+            dongho();
+        </script>
+
+        <div class="chunhat1">
+            <div id="square2">
+                <img
+                    class="img_center"
+                    src="img/doam.png"
+                    alt="Trulli"
+                    width="150px"
+                />
+                <h2 class="text" style="color: #808080">
+                    Độ ẩm: <span id="doam1">00</span>
+                </h2>
+            </div>
+
+            <div id="square3">
+                <img
+                    class="img_center"
+                    src="img/viscosity.png"
+                    alt="Trulli"
+                    width="120px"
+                />
+                <h2 class="text" style="color: #808080">
+                    Nhiệt độ: <span id="nhietdo1">00</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="chunhat2">
+            <div id="square1">
+                <img
+                    id="imgFanCtl1"
+                    class="gif"
+                    src="img/LightOff.png"
+                    alt="this slowpoke moves"
+                    width="100"
+                />
+                <label class="switch">
+                    <input type="checkbox" id="on_off1" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="square4">
+                <img
+                    id="imgFanCtl2"
+                    class="gif"
+                    src="img/fanoff.png"
+                    alt="this slowpoke moves"
+                    width="100"
+                />
+                <label class="switch">
+                    <input type="checkbox" id="on_off2" />
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+        <script src="phongkhach.js"></script>
+        <div class="button_back">
+            <button class="button" onclick="history.back()">HOME</button>
+        </div>
+    </body>
+</html>
